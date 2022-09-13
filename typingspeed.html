@@ -1,69 +1,77 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Typing Speed</title>
-<link rel="icon" type="image/x-icon" href="1.png">
-<meta charset="utf-8">
+  <title>Typing Speed</title>
+  <link rel="icon" type="image/x-icon" href="1.png">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
- 
-<style>
 
-body{
- background-color: rgb(12, 135, 184);
-}
-#img2{
-  max-width: 250px;
-  max-height: 250px;
-}
-</style>
+  <style>
+    body {
+      background-color: rgb(12, 135, 184);
+    }
+
+    #img2 {
+      max-width: 250px;
+      max-height: 250px;
+    }
+  </style>
 </head>
+
 <body>
-  <div class="text-center" id="display">
+  <div class="text-center">
     <div class="alert alert-info">
-    <strong>Important: Easy level takes 15s, Medium level takes 12s, Hard level takes 10s </strong>
+      <strong>Important: Easy level takes 15s, Medium level takes 12s, Hard level takes 10s </strong>
     </div>
- 
+
     <div class="text-light h4 " id="hid"> Speed test,test your skills</div>
-  <div class="h2 text-center mt-5 bg-light container">
+    <div class="h2 text-center mt-5 bg-light container">
       <img src="11.png" usemap="#image-map" id="img">
-        <map name="image-map">
-        <area target="" alt="easy level" title="easy level" href="#text" coords="93,96,38" shape="circle" id="easy" onblur="timeEasy()">
-        <area target="" alt="medium level" title="medium level" href="#text" coords="189,96,43" shape="circle" id="medium" onblur="timeMedium()">
-        <area target="" alt="hard level" title="hard level" href="#text" coords="294,97,40" shape="circle" id="hard" onblur="timeHard()">
-    </map>
-  <div class="text-center text-info" id="word">contain</div>
-<input type="text" id="text" onkeyup="getVal()"><br><br>
-<button class="btn btn-info" id="btn">
-  <span class="spinner-border spinner-border-lg"></span>
-</button>
-<div class="text-center text-info" id="score">score: 0</div>
-<button type="button" class="btn btn-primary" id="bt" style="visibility:hidden" onclick="playAgain()">Play Again</button>
-<div><img src="Abc-removebg-preview.png" class="responsive" id="img2"> </div></div></div>
+      <map name="image-map">
+        <area target="" alt="easy level" title="easy level" href="#text" coords="93,96,38" shape="circle"
+          onclick="timeEasy()">
+        <area target="" alt="medium level" title="medium level" href="#text" coords="189,96,43" shape="circle"
+          onclick="timeMedium()">
+        <area target="" alt="hard level" title="hard level" href="#text" coords="294,97,40" shape="circle"
+          onclick="timeHard()">
+      </map>
+      <div class="text-center text-info" id="word">contain</div>
+      <input type="text" id="text" onkeyup="getVal()"><br><br>
+      <button class="btn btn-info" id="btn">
+        <span class="spinner-border spinner-border-lg"></span>
+      </button>
+      <div class="text-center text-info" id="score">score: 0</div>
+      <button type="button" class="btn btn-info" id="bt" style="visibility:hidden" onclick="playAgain()">Play
+        Again</button>
+      <div><img src="Abc-removebg-preview.png" class="responsive" id="img2"> </div>
+    </div>
+  </div>
 
- 
 
 
 
 
-<script>
-   var words = ["certainly", "chair", "challenge", "chance", "change", "character", "charge", "check", "child", "choice", "choose", "church", "citizen", "city", "civil", "claim", "class", "clear", "clearly", "close", "coach", "cold", "collection", "college", "color", "come", "commercial", "common", "community", "company", "compare", "computer", "concern", "condition", "conference", "congress", "consider", "consumer", "contain", "continue", "control", "cost", "could", "country", "couple", "course", "court", "cover", "create", "crime", "cultural", "culture", "cup", "current", "customer", "cut", "dark", "data", "daughter", "day", "dead", "deal", "death", "debate", "decade", "decide", "decision", "deep", "defense", "degree", "democrat", "democratic", "describe", "design", "despite", "detail", "determine", "develop", "development", "die", "difference", "different", "difficult", "dinner", "direction", "director", "discover", "discuss", "discussion", "disease", "doctor", "dog", "door", "down", "draw", "dream", "drive", "drop", "drug", "during"];
+
+  <script>
+    var words = ["certainly", "chair", "challenge", "chance", "change", "character", "charge", "check", "child", "choice", "choose", "church", "citizen", "city", "civil", "claim", "class", "clear", "clearly", "close", "coach", "cold", "collection", "college", "color", "come", "commercial", "common", "community", "company", "compare", "computer", "concern", "condition", "conference", "congress", "consider", "consumer", "contain", "continue", "control", "cost", "could", "country", "couple", "course", "court", "cover", "create", "crime", "cultural", "culture", "cup", "current", "customer", "cut", "dark", "data", "daughter", "day", "dead", "deal", "death", "debate", "decade", "decide", "decision", "deep", "defense", "degree", "democrat", "democratic", "describe", "design", "despite", "detail", "determine", "develop", "development", "die", "difference", "different", "difficult", "dinner", "direction", "director", "discover", "discuss", "discussion", "disease", "doctor", "dog", "door", "down", "draw", "dream", "drive", "drop", "drug", "during"];
     var num = 0;
-getVal=()=>{
-  const x = Math.floor(Math.random() * 100);
+    getVal = () => {
+      const x = Math.floor(Math.random() * 100);
       var text = words[x];
-  if(((document.getElementById('text').value).toLowerCase())==(document.getElementById('word').innerHTML)){
-    num++;
-    document.getElementById("text").value="";
-    document.getElementById("word").innerHTML=words[x];
-    document.getElementById("score").innerHTML="Score: "+num;
+      if (((document.getElementById('text').value).toLowerCase()) == (document.getElementById('word').innerHTML)) {
+        num++;
+        document.getElementById("text").value = "";
+        document.getElementById("word").innerHTML = words[x];
+        document.getElementById("score").innerHTML = "Score: " + num;
 
-  }
-}
-timeHard = () => {
-  document.querySelector('body').style.background="red";
-  document.getElementById('img').style.display="none";
-  document.querySelector('strong').innerHTML="Hard level";
+      }
+    }
+    timeHard = () => {
+      document.querySelector('body').style.background = "red";
+      document.getElementById('img').style.display = "none";
+      document.querySelector('strong').innerHTML = "Hard level";
       let timeleft = 10;
       let downloadTimer = setInterval(function () {
         if (timeleft == 0) {
@@ -72,17 +80,17 @@ timeHard = () => {
           document.getElementById("word").style.display = "none";
           document.getElementById("btn").style.display = "none";
           document.getElementById("bt").style.visibility = "visible";
-         }
+        }
 
-        document.getElementById("btn").innerHTML ="<span class='spinner-border spinner-border-sm'></span> "+ timeleft;
+        document.getElementById("btn").innerHTML = "<span class='spinner-border spinner-border-sm'></span> " + timeleft;
         timeleft -= 1;
       }, 1000);
     }
 
     timeMedium = () => {
-      document.querySelector('body').style.background="rgb(226, 195, 18)";
-  document.getElementById('img').style.display="none";
-  document.querySelector('strong').innerHTML="Medium level";
+      document.querySelector('body').style.background = "rgb(226, 195, 18)";
+      document.getElementById('img').style.display = "none";
+      document.querySelector('strong').innerHTML = "Medium level";
       let timeleft = 12;
       let downloadTimer = setInterval(function () {
         if (timeleft == 0) {
@@ -91,18 +99,18 @@ timeHard = () => {
           document.getElementById("word").style.display = "none";
           document.getElementById("btn").style.display = "none";
           document.getElementById("bt").style.visibility = "visible";
-         }
+        }
 
-        document.getElementById("btn").innerHTML ="<span class='spinner-border spinner-border-sm'></span> "+ timeleft;
+        document.getElementById("btn").innerHTML = "<span class='spinner-border spinner-border-sm'></span> " + timeleft;
         timeleft -= 1;
       }, 1000);
     }
 
 
     timeEasy = () => {
-      document.querySelector('body').style.background="green";
-  document.getElementById('img').style.display="none";
-  document.querySelector('strong').innerHTML="Easy level";
+      document.querySelector('body').style.background = "green";
+      document.getElementById('img').style.display = "none";
+      document.querySelector('strong').innerHTML = "Easy level";
       let timeleft = 15;
       let downloadTimer = setInterval(function () {
         if (timeleft == 0) {
@@ -111,30 +119,31 @@ timeHard = () => {
           document.getElementById("word").style.display = "none";
           document.getElementById("btn").style.display = "none";
           document.getElementById("bt").style.visibility = "visible";
-         }
+        }
 
-        document.getElementById("btn").innerHTML ="<span class='spinner-border spinner-border-sm'></span> "+ timeleft;
+        document.getElementById("btn").innerHTML = "<span class='spinner-border spinner-border-sm'></span> " + timeleft;
         timeleft -= 1;
       }, 1000);
     }
 
-    playAgain = () =>{
-      num=0;
+    playAgain = () => {
+      num = 0;
       document.getElementById("text").type = "text";
-      document.getElementById("text").value="";
-          document.getElementById("word").style.display = "block";
-          document.getElementById("btn").style.display = "inline-block";
-          document.getElementById("bt").style.visibility = "hidden";
-          document.getElementById("score").innerHTML="Score: "+num;
-          document.querySelector('body').style.background="rgb(12, 135, 184)";
-  document.getElementById('img').style.display="inline-block";
-  document.querySelector('strong').innerHTML="Important: Easy level takes 15s, Medium level takes 12s, Hard level takes 10s";
-  document.getElementById("btn").innerHTML ="<span class='spinner-border spinner-border-sm'></span> ";
-       }
+      document.getElementById("text").value = "";
+      document.getElementById("word").style.display = "block";
+      document.getElementById("btn").style.display = "inline-block";
+      document.getElementById("bt").style.visibility = "hidden";
+      document.getElementById("score").innerHTML = "Score: " + num;
+      document.querySelector('body').style.background = "rgb(12, 135, 184)";
+      document.getElementById('img').style.display = "inline-block";
+      document.querySelector('strong').innerHTML = "Important: Easy level takes 15s, Medium level takes 12s, Hard level takes 10s";
+      document.getElementById("btn").innerHTML = "<span class='spinner-border spinner-border-sm'></span> ";
+    }
 
 
-</script>
+  </script>
 
 
 </body>
+
 </html>
