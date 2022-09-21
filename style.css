@@ -37,6 +37,8 @@ body {
     font-weight: bold;
     font-size: medium;
     padding: 10px 15px;
+    border: 2px solid azure ;
+    border-radius: 5px;
 }
     #bt:hover{
         color: rgb(39, 142, 211);
