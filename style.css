@@ -18,11 +18,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: azure;
-    
-   
-
-    
-  }
+    }
   input{
     background-color: rgb(80, 170, 206);
     color:azure;
@@ -43,4 +39,10 @@ body {
     #bt:hover{
         color: rgb(39, 142, 211);
     background-color: rgb(138, 233, 233);
+    }
+    #btn{
+      color:whitesmoke;
+      font-weight: bolder;
+      font-size: large;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
